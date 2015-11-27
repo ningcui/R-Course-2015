@@ -13,8 +13,7 @@
 
 # Temp files
 *.html
-r_markdown_files
-r_markdown_cache
+*files
 *cache
 
 # Data
