@@ -70,16 +70,20 @@ Wir lesen XML-Dateien aus dem Tüba-D/Z-Korpus ein und extrahieren *Lemmata* und
 ```{r reading_XML, highlight = TRUE, results = 'hide', echo = TRUE, cache = TRUE}
 library(XML)
 
+#leere Vectoren angelegt
 tokens <- vector('character')
 types <- vector('character')
 
+#xml event parser -->sequential parsing
+#list in 
 xmlEventParse(
-  "../data/t_990505_47.xml", 
-  handlers = list(
-    't' = function(name, attr) {
-      tokens <<- c(tokens, attr['word'])
-      types <<- c(types, attr['lemma'])
-      ## morphology
+  "R-Course-2015/data/t_990505_47.xml", 
+  handlers = list( #Liste von Verarbeitungsroutinen
+    't' = function(name, attr) { #tag mit t
+      tokens <<- c(tokens, attr['word']) #Attribute, die word heißen zufügen
+      types <<- c(types, attr['lemma']) #Attribute, die lemma heißen
+      # <<- Schreiben in globale Variablen
+      ## add morphology handler
       }
     ),
   addContext = FALSE
@@ -100,4 +104,6 @@ tokens <- unname(tokens)
 
 * Den Dataframe anpassen und die Verteilung von Substantiven nach dem Genus berechnen.
 
-* Anzahl der autosemantischen Wörtern im Text berechnen.
+* Anzahl der autosemantischen Wörtern im Text berechnen. (hist, table)
+
+* Auf Github hochladen.
