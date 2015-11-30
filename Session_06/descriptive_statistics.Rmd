@@ -2,35 +2,27 @@
 
 ## Daten einlesen
 ```{r input, echo = TRUE}
-df <- read.table('../data/03-1_aeh(m).txt', header = T)
-
+df <- read.table('C:/LearningR/R-Course-2015/data/03-1_aeh(m).txt', header = T)
+#character ineffizient -->factor effizienter!!
 str(df)
 
 head(df)
 tail(df, n = 3)
 ```
 
-## Klassenbildung
-
-Sturges' Formel
-$$
-k = \log_2 n + 1
-$$
-
-## Häufigkeistverteilungen
+## Häufigkeitsverteilungen
 ```{r table, echo = T}
 head(df$FILLER)
 
 attach(df)
 str(FILLER)
 
-table(FILLER)
-
+t1 <- table(FILLER)
 table(FILLER) / length(FILLER)
 
-prop.table(table(FILLER))
+t2 <- prop.table(table(FILLER)) #relative proportions
 
-cumsum(table(FILLER))
+cumsum(table(FILLER)) #cumulative sum (Sammelhäufigkeit)
 ```
 
 
@@ -49,16 +41,31 @@ barplot(table(FILLER),
         main = 'Unser Balkendiagramm',
         # ylim
         # xlim
-        col = c('red', 'green', 'blue'),
+        col = c('red', 'green'), 
         names.arg = c('Aeh', 'Aehm', 'Volle Stille')
         )
+#recycling -->Wiederholung eines Vectors wenn nicht ausreichend
+c(2,4,6,8)/c(2,1)
 
 ```
 
+## Klassenbildung
+
+Sturges' Formel (Standardformel für Klassenbildung in hist())
+$$
+k = \log_2 n + 1
+$$
+Logarithmen als Umkehr von Potenzfuntionen
+$$
+2**x = n
+$$
 
 ## Histogramme
 ```{r hist, echo = T} 
-hist(LAENGE, breaks = c(200,350, 800, 1600))
+hist(LAENGE, breaks = c(200,350, 800, 1600),main = "Länge von Pausen in Millisekunden - theoretische Klasseneinteilung",freq = T)
+hist(LAENGE, main = "Länge von Pausen in Millisekunden - Klasseneinteilung nach Sturges",freq = T)
+hist(LAENGE, breaks = 4,main = "Länge von Pausen in Millisekunden",freq = T)
+
 ```
 
 ## Daten einlesen
