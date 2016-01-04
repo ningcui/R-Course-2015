@@ -1,12 +1,12 @@
 ---
 title: "Mathematische Operationen"
 author: "Andrei Beliankou"
-date: "01/20/2015"
+date: "01/04/2016"
 output: html_document
 ---
 
-`R` ist nicht primär eine methematische Umgebung wie z.B. `GNU Octave`, aber man findet eine Reihe von
-wichtige Funktionen, u.A. für die Umwandlung der Matrizen
+`R` ist nicht primär eine mathematische Umgebung wie z.B. `GNU Octave`, aber man findet eine Reihe von
+wichtigen Funktionen, u.A. für die Umwandlung der Matrizen.
 
 ## Grundrechenarten
 ```{r}
@@ -43,6 +43,7 @@ log(1, base = exp(1))
 log10(100)
 log2(8)
 ```
+
 ## Trigonometrische Funktionen
 Radiant-Winkelmaß
 $$
@@ -69,6 +70,7 @@ A <- matrix(1:6, nrow = 2, ncol = 3, byrow = T)
 A
 t(A)
 ```
+
 ### Addition der Matrizen
 ```{r}
 B <- matrix(6:11, nrow = 2, ncol = 3, byrow = T)
@@ -76,6 +78,7 @@ B
 A + B
 A - B
 ```
+
 ### Multiplikation der Matrizen
 ```{r}
 A
@@ -87,10 +90,9 @@ A; D
 A %*% D
 ```
 
-
 ## Quellen
 
-- Hedderich, Jürgen, und Lothar Sachs. Angewandte Statistik: Methodensammlung mit R. 14th ed. Springer, 2012. S. 37-45
+- Hedderich, Jürgen, und Lothar Sachs. _Angewandte Statistik: Methodensammlung mit R._ 14th ed. Springer, 2012. S. 37-45
 
 ## Aufgaben
 
