@@ -17,8 +17,8 @@ a - b
 a * b
 a / b
 a ^ b
-5 %/% 2
-5 %% 2
+5 %/% 2 #ganzzahlige Division
+5 %% 2 #Rest
 ```
 
 ## Summen und Produkte
@@ -26,7 +26,7 @@ a ^ b
 x <- 1:10
 sum(x)
 prod(x)
-factorial(length(x))
+factorial(length(x)) #Fakultaet
 ```
 
 ## Radizes 
@@ -60,6 +60,7 @@ tan(pi/4)
 
 ## Vereinigungen und Schnittmengen
 ```{r}
+# Mengen
 union(1:10,5:7)
 intersect(1:10,5:7)
 ```
@@ -82,12 +83,12 @@ A - B
 ### Multiplikation der Matrizen
 ```{r}
 A
-A * 2
+A * 2 #Skalarmultiplikation
 
 D <- matrix(6:11, nrow = 3, ncol = 2, byrow = T)
 A; D
 
-A %*% D
+A %*% D #Matrixmultiplikation
 ```
 
 ## Quellen
@@ -99,5 +100,5 @@ A %*% D
 Wir nehmen an, dass die Länge der Wörter in Buchstaben linear mit der Häufigkeit zusammenhängt:
 
 - bilden Sie eine Matrix mit 10 Beobachtungen über die Länge;
-- entwerfen Sie drei lineare Modelle mit Ihrer Parameterschätzung;
+- entwerfen Sie drei lineare Modelle mit Ihrer Parameterschätzung;#zweite Matrix
 - berechnen Sie die vorhergesagte Häufigkeitswerte.
