@@ -25,26 +25,26 @@ $$
 
 ## Berechnung in R
 ```{r}
-choose(100,35)*choose(70,40) * 0.35^35 * 0.35^40 * 0.30^25  # choose(25, 25) = 1
+choose(100,35)*choose(70,40) * 0.35^35 * 0.35^40 * 0.30^25  # choose(25, 25) = 1 #restliche 25 Wörter
 ```
 
 
 ## Chi-Quadrat-Test
 $$
-\chi^2 = \frac{(f_o - f_e)^2}{f_e}
+\chi^2 = \sum\frac{(f_o - f_e)^2}{f_e}
 $$
 
 ```{r}
 x <- c(35, 40, 25)
 p <- c(35, 35, 30)
-p <- p/sum(p)
+p <- p/sum(p) #relativer Wert
 n <- sum(x) 
 chi.squared <- sum( (x - n*p)^2 / (n*p)) 
 chi.squared
 ```
 
 ```{r}
-pchisq(chi.squared, df = 3 - 1, lower.tail = F)
+pchisq(chi.squared, df = 3 - 1, lower.tail = F) #p > 0.05 kein signifikanter Unterschied zwischen beobachteten Werten und  erwarteten Werten
 ```
 
 ```{r}
@@ -53,7 +53,10 @@ chisq.test(x, p = p)
 
 
 ## Aufgaben
-- keine
+- 2 Korpus-Texte
+- die ersten 100 Autosemantika extrahieren (keine Funktionswörter)
+- Beobachtungen in A,V und N-Wörter aufteilen
+- die beiden Häufigkeitsverteilungen m.H. von Chi-Quadrat-Test vergleichen
 
 ## Quellen
 - John Verzani. _Using R for Introductory Statistics_. CRC, 2004, pp. 239-247
